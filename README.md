@@ -9,26 +9,34 @@ This repository package contains only the public-facing computational core:
 
 It intentionally excludes manuscript files, bibliographic PDFs, submission archives, raw participant logs, generated Monte Carlo outputs, and historical audit material.
 
+## 🌐 Acesse os Testes Online
+
+Visite: **[dumag93.github.io/Brief-Advanced-Computerized-Neuropsychological-Battery-BACNB-](https://dumag93.github.io/Brief-Advanced-Computerized-Neuropsychological-Battery-BACNB-/)**
+
+Todos os testes podem ser executados diretamente no navegador sem necessidade de instalação!
+
 ## Contents
 
 ```text
 .
+|-- docs
+|   `-- index.html                (homepage - acesse online)
 |-- simulation
 |   |-- README.md
 |   `-- Monte_Carlo_Simulation_BACNB.py
 |-- tests
 |   |-- sart
 |   |   |-- sart.osexp
-|   |   `-- index.html
+|   |   `-- index.html            (teste online)
 |   |-- sst
 |   |   |-- sst.osexp
-|   |   `-- index.html
+|   |   `-- index.html            (teste online)
 |   |-- flanker
 |   |   |-- flanker.osexp
-|   |   `-- index.html
+|   |   `-- index.html            (teste online)
 |   `-- digit_span
 |       |-- digit_span.osexp
-|       `-- index.html
+|       `-- index.html            (teste online)
 |-- CONTRIBUTING.md
 |-- requirements.txt
 |-- .gitignore
@@ -46,11 +54,11 @@ Each task folder includes an OpenSesame experiment file (`.osexp`) and an OSWeb 
 
 ## Language Status
 
-The current OpenSesame/OSWeb task interfaces are in Brazilian Portuguese (PTBR). They are shared as the original working BACNB task versions. The scientific and developer communities are explicitly invited to create polished interface revisions, translations, localization files, and language-specific adaptations, as long as attribution is preserved and the repository license terms are followed.
+The current OpenSesame/OSWeb task interfaces are in Brazilian Portuguese (PTBR). They are shared as the original working BACNB task versions. The scientific and developer communities are explicitly invited to create more translations and contribute localized versions.
 
 ## Why the Monte Carlo Simulation Is Included
 
-The individual tasks define the behavioral measurement layer of BACNB. The Monte Carlo simulation is included because it documents the theoretical integration layer: it simulates the same synthetic agents across SART, SST, Flanker, and Digit Span; transforms observable task metrics into oriented functional costs; extracts emergent constructs; and maps functional profiles in a cognitive state space.
+The individual tasks define the behavioral measurement layer of BACNB. The Monte Carlo simulation is included because it documents the theoretical integration layer: it simulates the same synthetic agents across all four tasks and projects behavior onto an inferred state-space model.
 
 In other words, the simulation is not an extra unrelated script. It is the reproducible computational bridge between the four independent tasks and the state-space model proposed for the battery.
 
@@ -84,11 +92,11 @@ pip install -r requirements.txt
 
 ## Scientific Status
 
-This is an experimental and in silico methodological project. It is not a clinical diagnostic instrument, does not provide clinical norms, and should not be used for individual diagnosis without empirical validation, pilot data, reliability testing, and normative calibration.
+This is an experimental and in silico methodological project. It is not a clinical diagnostic instrument, does not provide clinical norms, and should not be used for individual diagnosis without explicit informed consent and qualified professional oversight.
 
 ## Open Science Intent
 
-This project is shared to support open science, user freedom, independent verification, and public benefit. The author does not seek royalties from community use. Contributions and code changes are welcome when they preserve attribution, respect the licenses, and keep the work aligned with transparent scientific use rather than exploitation of end users.
+This project is shared to support open science, user freedom, independent verification, and public benefit. The author does not seek royalties from community use. Contributions and code changes are welcome.
 
 ## Author
 
