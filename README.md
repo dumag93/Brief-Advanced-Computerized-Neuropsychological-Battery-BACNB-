@@ -20,20 +20,20 @@ All tests can be run directly in your browser, with no installation required!
 ```text
 .
 |-- docs
-|   |-- index.html                (homepage - acesse online)
-|   `-- tests                     (testes OSWeb movidos para a raiz do site)
+|   |-- index.html                (homepage - access online)
+|   `-- tests                     (OSWeb tests moved to site root)
 |       |-- sart
 |       |   |-- sart.osexp
-|       |   `-- index.html        (teste online)
+|       |   `-- index.html        (online test)
 |       |-- sst
 |       |   |-- sst.osexp
-|       |   `-- index.html        (teste online)
+|       |   `-- index.html        (online test)
 |       |-- flanker
 |       |   |-- flanker.osexp
-|       |   `-- index.html        (teste online)
+|       |   `-- index.html        (online test)
 |       `-- digit_span
 |           |-- digit_span.osexp
-|           `-- index.html        (teste online)
+|           `-- index.html        (online test)
 |-- simulation
 |   |-- README.md
 |   `-- Monte_Carlo_Simulation_BACNB.py
