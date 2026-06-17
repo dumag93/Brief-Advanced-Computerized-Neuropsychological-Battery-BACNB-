@@ -1,4 +1,4 @@
-# BACNB
+# Brief Advanced Computerized Neuropsychological Battery (BACNB)
 
 Brief Advanced Computerized Neuropsychological Battery (BACNB) is a reduced computerized battery for experimental assessment of executive-function dynamics.
 
