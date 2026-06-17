@@ -9,17 +9,17 @@ This repository package contains only the public-facing computational core:
 
 It intentionally excludes manuscript files, bibliographic PDFs, submission archives, raw participant logs, generated Monte Carlo outputs, and historical audit material.
 
-## Hardware Requirements & Clinical Administration
-
-**The BACNB interface is intentionally incompatible with smartphones.** Execution requires a computer or a tablet with a screen size of 11 inches or larger. While it has not been tested on smaller tablets, the spatial specifications encoded in the `.osexp` files make the visual interface structurally incompatible with smaller displays.
-
-**This hardware restriction is not arbitrary.** The BACNB is not a self-administered tool. These tasks must be applied in a controlled environment by a qualified administrator with clinical experience to ensure valid behavioral measurement, proper environmental setup, and continuous supervision.
-
 ## 🌐 Access the Online Tests
 
 Visit the PT-BR version: **[dumag93.github.io/Brief-Advanced-Computerized-Neuropsychological-Battery-BACNB-](https://dumag93.github.io/Brief-Advanced-Computerized-Neuropsychological-Battery-BACNB/)**
 
 All tests can be run directly in your browser, with no installation required!
+
+## Hardware Requirements & Clinical Administration
+
+**The BACNB interface is intentionally incompatible with smartphones.** Execution requires a computer or a tablet with a screen size of 11 inches or larger. While it has not been tested on smaller tablets, the spatial specifications encoded in the `.osexp` files make the visual interface structurally incompatible with smaller displays.
+
+**This hardware restriction is not arbitrary.** The BACNB is not a self-administered tool. These tasks must be applied in a controlled environment by a qualified administrator with clinical experience to ensure valid behavioral measurement, proper environmental setup, and continuous supervision.
 
 ## Contents
 
