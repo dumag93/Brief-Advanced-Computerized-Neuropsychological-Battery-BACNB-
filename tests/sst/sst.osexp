@@ -1,0 +1,773 @@
+---
+API: 3
+Citation: 'Logan, G. D., Cowan, W. B., & Davis, K. A. (1984). On the ability to inhibit
+  simple and choice reaction time responses: a model and a method. *Journal of Experimental
+  Psychology: Human Perception and Performance*, *10*(2), 276. <http://doi.org/10.1037/0096-1523.10.2.276>'
+Description: Loosely based on Logan et al. (1984)
+OpenSesame: 4.1.14
+Platform: nt
+Title: Stop-Signal Task
+---
+set width 1280
+set uniform_coordinates yes
+set title "Stop-Signal Task (SST)"
+set subject_parity even
+set subject_nr 0
+set start task
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend legacy
+set round_decimals 2
+set mouse_backend osweb
+set keyboard_backend osweb
+set jatos_uuid "f18c8096-72e6-ed10-9342-f6cd44860715"
+set height 720
+set fullscreen no
+set form_clicks no
+set foreground black
+set font_underline no
+set font_size 20
+set font_italic False
+set font_family mono
+set font_bold False
+set experiment_path "."
+set disable_garbage_collection False
+set description "Loosely based on Logan (1984) Journal of Experimental Psychology: Human Perception and Performance"
+set coordinates uniform
+set compensation 0
+set color_backend osweb
+set clock_backend osweb
+set canvas_backend osweb
+set bidi no
+set background white
+
+define form_text_display End_of_Task
+	set timeout infinite
+	set spacing 10
+	set rows "1;8;1"
+	set only_render no
+	set ok_text Finalizar
+	set margins "40;40;40;40"
+	set form_title "<span size=24><b>Teste Concluído</b></span>"
+	__form_text__
+	<b>Parabéns, você chegou ao fim da tarefa!</b>
+	
+	Todos os seus dados e tempos de reação foram gravados com sucesso pelo sistema. 
+	
+	Muito obrigado pela sua atenção, foco e participação.
+	
+	Clique no botão abaixo para encerrar o aplicativo de testes.
+	__end__
+	set description "A simple text display form"
+	set cols "1;2;1"
+	set _theme gray
+	widget 0 0 3 1 label text="[form_title]"
+	widget 0 1 3 1 label center=no text="[form_text]"
+	widget 1 2 1 1 button text="[ok_text]"
+
+
+define form_text_display End_of_Training
+	set timeout infinite
+	set spacing 10
+	set rows "1;5;1"
+	set only_render no
+	set ok_text "Iniciar Teste"
+	set margins "60;60;60;60"
+	set form_title "<span size=24><b>Fim do Treino</b></span>"
+	__form_text__
+	<b>Você concluiu a fase de adaptação com sucesso!</b>
+	
+	O teste oficial começará a seguir e terá uma duração maior. Lembre-se de manter o foco no seu objetivo duplo:
+	
+	1. Responda o mais <b>RÁPIDO</b> possível às setas pretas.
+	2. Tente inibir sua resposta apenas quando a seta ficar <b>VERMELHA</b>.
+	
+	<b>Ao clicar no botão abaixo, iniciaremos um intervalo de 30 segundos para descansar os olhos.</b> Aproveite este momento para relaxar antes do início do teste principal.
+	__end__
+	set description "A simple text display form"
+	set cols "1;1;1"
+	set _theme gray
+	widget 0 0 3 1 label text="[form_title]"
+	widget 0 1 3 1 label center=no text="[form_text]"
+	widget 1 2 1 1 button text="[ok_text]"
+
+
+define form_text_display Training_Instructions
+	set timeout infinite
+	set spacing 10
+	set rows "1;3;1"
+	set only_render no
+	set ok_text "Iniciar Treino"
+	set margins "40;40;40;40"
+	set form_title "<span size=24><b>Instruções Gerais</b></span>"
+	__form_text__
+	<b>Tarefa de Inibição Motora (Stop-Signal Task)</b>
+	
+	Nesta tarefa, uma <b>seta preta</b> aparecerá no centro da tela apontando para um dos lados. Seu objetivo é responder o mais rápido possível:
+	
+	• <b>Seta para a ESQUERDA:</b> Pressione a <b>Seta para a Esquerda</b> no teclado o mais rápido que puder.
+	
+	• <b>Seta para a DIREITA:</b> Pressione a <b>Seta para a Direita</b> no teclado o mais rápido que puder.
+	
+	Ocasionalmente, a seta preta mudará para a cor <b>VERMELHA</b>. Quando isso acontecer, você deve <b>TENTAR PARAR</b> a sua resposta. Não aperte nenhuma tecla e espere a seta sumir.
+	
+	<b>Atenção:</b> Responda o mais <b>RÁPIDO</b> possível às setas pretas. Não diminua a sua velocidade tentando "esperar" a seta vermelha. Começaremos agora com um breve <b>TREINO</b>.
+	__end__
+	set description "A simple text display form"
+	set cols "1;1;1"
+	set _theme gray
+	widget 0 0 3 1 label text="[form_title]"
+	widget 0 1 3 1 label center=no text="[form_text]"
+	widget 1 2 1 1 button text="[ok_text]"
+
+
+define loop block_loop
+	set source table
+	set skip 0
+	set repeat 13
+	set order random
+	set offset no
+	set item trial_sequence
+	set description "Runs the official SST as one continuous randomized loop"
+	set cycles 16
+	set continuous no
+	set column_order "target;stop_after;correct_response"
+	set break_if_on_first yes
+	set break_if False
+	setcycle 0 correct_response None
+	setcycle 0 target left
+	setcycle 1 correct_response None
+	setcycle 1 target left
+	setcycle 2 correct_response None
+	setcycle 2 target right
+	setcycle 3 correct_response None
+	setcycle 3 target right
+	setcycle 4 correct_response left
+	setcycle 4 target left
+	setcycle 5 correct_response left
+	setcycle 5 target left
+	setcycle 6 correct_response left
+	setcycle 6 target left
+	setcycle 7 correct_response left
+	setcycle 7 target left
+	setcycle 8 correct_response left
+	setcycle 8 target left
+	setcycle 9 correct_response left
+	setcycle 9 target left
+	setcycle 10 correct_response right
+	setcycle 10 target right
+	setcycle 11 correct_response right
+	setcycle 11 target right
+	setcycle 12 correct_response right
+	setcycle 12 target right
+	setcycle 13 correct_response right
+	setcycle 13 target right
+	setcycle 14 correct_response right
+	setcycle 14 target right
+	setcycle 15 correct_response right
+	setcycle 15 target right
+	run trial_sequence
+
+define inline_javascript compute_trial_result_inline_javascript
+	set description "Executes JavaScript"
+	___run__
+	function isNone(value) {
+	    return value === undefined || value === null || value === "None" || value === "none" || value === "";
+	}
+	function getVar(name, fallback) {
+	    try {
+	        return vars[name];
+	    } catch (e) {
+	        return fallback;
+	    }
+	}
+	
+	var correctResponse = getVar("correct_response", "None");
+	var kb1Response = getVar("response_kb1_response", "None");
+	var kb1Rt = getVar("response_time_kb1_response", "None");
+	var kb2Response = getVar("response_kb2_response", "None");
+	var kb2Rt = getVar("response_time_kb2_response", "None");
+	
+	vars.ssd_used = Number(getVar("ssd_current", 250));
+	vars.trial_type = isNone(correctResponse) ? "stop" : "go";
+	vars.is_stop_trial = vars.trial_type === "stop" ? 1 : 0;
+	
+	vars.response_total = "None";
+	vars.rt_total = "None";
+	vars.response_source = "None";
+	
+	if (!isNone(kb1Response)) {
+	    vars.response_total = kb1Response;
+	    vars.rt_total = Number(kb1Rt);
+	    vars.response_source = "kb1";
+	} else if (!isNone(kb2Response)) {
+	    vars.response_total = kb2Response;
+	    vars.rt_total = vars.ssd_used + Number(kb2Rt);
+	    vars.response_source = "kb2";
+	}
+	
+	vars.go_omission = 0;
+	vars.go_choice_error = 0;
+	vars.go_correct = "N/A";
+	vars.stop_responded = "N/A";
+	vars.stop_failure_pre_signal = "N/A";
+	vars.stop_failure_after_signal = "N/A";
+	vars.signal_respond_rt = "N/A";
+	
+	if (vars.is_stop_trial === 1) {
+	    vars.stop_responded = isNone(vars.response_total) ? 0 : 1;
+	    if (vars.stop_responded === 1 && !isNone(vars.rt_total)) {
+	        var totalRt = Number(vars.rt_total);
+	        vars.stop_failure_pre_signal = totalRt < vars.ssd_used ? 1 : 0;
+	        vars.stop_failure_after_signal = totalRt >= vars.ssd_used ? 1 : 0;
+	        vars.signal_respond_rt = vars.stop_failure_after_signal === 1 ? Math.max(0, totalRt - vars.ssd_used) : "N/A";
+	    }
+	} else {
+	    if (isNone(vars.response_total)) {
+	        vars.go_omission = 1;
+	        vars.go_correct = 0;
+	    } else {
+	        vars.go_choice_error = vars.response_total === correctResponse ? 0 : 1;
+	        vars.go_correct = vars.response_total === correctResponse ? 1 : 0;
+	    }
+	}
+	
+	__end__
+	set _prepare ""
+
+define inline_javascript compute_training_result_inline_javascript
+	set description "Computes SST training trial result"
+	___run__
+	function isNone(value) {
+	    return value === undefined || value === null || value === "None" || value === "none" || value === "";
+	}
+	function getVar(name, fallback) {
+	    try {
+	        return vars[name];
+	    } catch (e) {
+	        return fallback;
+	    }
+	}
+	
+	var correctResponse = getVar("correct_response", "None");
+	var kb1Response = getVar("response_kb1_response_training", "None");
+	var kb1Rt = getVar("response_time_kb1_response_training", "None");
+	var kb2Response = getVar("response_kb2_response_training", "None");
+	var kb2Rt = getVar("response_time_kb2_response_training", "None");
+	
+	vars.ssd_used = Number(getVar("ssd_current", 250));
+	vars.trial_type = isNone(correctResponse) ? "stop" : "go";
+	vars.is_stop_trial = vars.trial_type === "stop" ? 1 : 0;
+	
+	vars.response_total = "None";
+	vars.rt_total = "None";
+	vars.response_source = "None";
+	
+	if (!isNone(kb1Response)) {
+	    vars.response_total = kb1Response;
+	    vars.rt_total = Number(kb1Rt);
+	    vars.response_source = "kb1_training";
+	} else if (!isNone(kb2Response)) {
+	    vars.response_total = kb2Response;
+	    vars.rt_total = vars.ssd_used + Number(kb2Rt);
+	    vars.response_source = "kb2_training";
+	}
+	
+	vars.go_omission = 0;
+	vars.go_choice_error = 0;
+	vars.go_correct = "N/A";
+	vars.stop_responded = "N/A";
+	vars.stop_failure_pre_signal = "N/A";
+	vars.stop_failure_after_signal = "N/A";
+	vars.signal_respond_rt = "N/A";
+	
+	if (vars.is_stop_trial === 1) {
+	    vars.stop_responded = isNone(vars.response_total) ? 0 : 1;
+	    if (vars.stop_responded === 1 && !isNone(vars.rt_total)) {
+	        var totalRt = Number(vars.rt_total);
+	        vars.stop_failure_pre_signal = totalRt < vars.ssd_used ? 1 : 0;
+	        vars.stop_failure_after_signal = totalRt >= vars.ssd_used ? 1 : 0;
+	        vars.signal_respond_rt = vars.stop_failure_after_signal === 1 ? Math.max(0, totalRt - vars.ssd_used) : "N/A";
+	    }
+	} else {
+	    if (isNone(vars.response_total)) {
+	        vars.go_omission = 1;
+	        vars.go_correct = 0;
+	    } else {
+	        vars.go_choice_error = vars.response_total === correctResponse ? 0 : 1;
+	        vars.go_correct = vars.response_total === correctResponse ? 1 : 0;
+	    }
+	}
+	__end__
+	set _prepare ""
+
+define inline_javascript config_viewport_inline_javascript
+	set description "Executes JavaScript"
+	___run__
+	// 1. Remove a configuração padrão do navegador móvel
+	var oldMeta = document.querySelector('meta[name="viewport"]');
+	if (oldMeta) oldMeta.remove();
+	
+	// 2. Engana o tablet: Força a página a ter exatamente 1280 pixels
+	var meta = document.createElement('meta');
+	meta.name = 'viewport';
+	meta.content = 'width=1280, user-scalable=no';
+	document.head.appendChild(meta);
+	
+	// 3. A Mágica da Elegância: Recria as tarjas pretas no fundo e centraliza
+	var estilo = document.createElement('style');
+	estilo.innerHTML = `
+	    html { 
+	        background-color: black !important; 
+	        height: 100vh !important; /* Aqui estava 100%. O 100vh garante que ele recalcule o centro ao entrar em tela cheia */
+	        width: 100vw !important;
+	        display: flex;
+	        align-items: center;
+	        justify-content: center;
+	        margin: 0;
+	        padding: 0;
+	    }
+	    body {
+	        background-color: white !important; 
+	        width: 1280px !important;
+	        height: 720px !important;
+	        margin: 0 !important;
+	        position: relative !important;
+	        overflow: hidden !important;
+	        flex-shrink: 0 !important; /* Impede que o navegador esmague a tela branca */
+	    }
+	`;
+	document.head.appendChild(estilo);
+	
+	// 4. O Gatilho do Full Screen
+	function ativarFullScreen() {
+	    var elem = document.documentElement;
+	    // Verifica se já não está em tela cheia
+	    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+	        if (elem.requestFullscreen) {
+	            elem.requestFullscreen();
+	        } else if (elem.webkitRequestFullscreen) { /* Fallback para tablets antigos */
+	            elem.webkitRequestFullscreen();
+	        }
+	    }
+	    // Remove os gatilhos após o primeiro toque para economizar processamento
+	    document.removeEventListener('click', ativarFullScreen);
+	    document.removeEventListener('touchstart', ativarFullScreen);
+	}
+	
+	// O navegador fica "escutando" o primeiro toque do paciente na tela
+	document.addEventListener('click', ativarFullScreen);
+	document.addEventListener('touchstart', ativarFullScreen);
+	__end__
+	set _prepare ""
+
+define inline_javascript custom_identification_page_inline_javascript
+	set description "Executes JavaScript"
+	___run__
+	// 1. Cria o contêiner principal ocupando 100% da janela (Manta de Fundo)
+	var fullScreenOverlay = document.createElement('div');
+	fullScreenOverlay.id = 'custom-ident-overlay';
+	fullScreenOverlay.style.position = 'fixed';
+	fullScreenOverlay.style.top = '0';
+	fullScreenOverlay.style.left = '0';
+	fullScreenOverlay.style.width = '100vw';
+	fullScreenOverlay.style.height = '100vh';
+	fullScreenOverlay.style.backgroundColor = '#000000'; // Fundo preto puro bloqueia qualquer vazamento visual
+	fullScreenOverlay.style.zIndex = '99999';
+	
+	// 2. Cria a caixa do formulário (AUMENTADA)
+	var formWrapper = document.createElement('div');
+	formWrapper.style.position = 'absolute';
+	formWrapper.style.top = '50%';
+	formWrapper.style.left = '50%';
+	formWrapper.style.transform = 'translate(-50%, -50%)';
+	formWrapper.style.textAlign = 'center';
+	formWrapper.style.fontFamily = 'Helvetica, Arial, sans-serif';
+	formWrapper.style.backgroundColor = '#1a1a1a'; // Caixa escura clínica
+	formWrapper.style.padding = '50px 45px'; // Aumentado o espaçamento interno
+	formWrapper.style.borderRadius = '14px';
+	formWrapper.style.boxShadow = '0 12px 30px rgba(0,0,0,0.8)';
+	formWrapper.style.width = '460px'; // Aumentado de 380px para 460px
+	
+	// 3. Cabeçalho
+	var header = document.createElement('h2');
+	header.innerText = 'Identificação';
+	header.style.color = '#ffffff';
+	header.style.margin = '0 0 15px 0';
+	header.style.fontSize = '26px';
+	formWrapper.appendChild(header);
+	
+	// 4. Instruções (Texto ajustado para o Protocolo)
+	var instructions = document.createElement('p');
+	instructions.innerText = 'Por favor, preencha o formulário com seu nome completo antes de iniciar o protocolo:';
+	instructions.style.color = '#aaaaaa';
+	instructions.style.margin = '0 0 30px 0';
+	instructions.style.fontSize = '16px';
+	instructions.style.lineHeight = '1.5';
+	formWrapper.appendChild(instructions);
+	
+	// 5. Caixa de digitação do nome (Input Text - AUMENTADA)
+	var nameInput = document.createElement('input');
+	nameInput.type = 'text';
+	nameInput.style.padding = '15px 20px'; // Caixa mais alta e confortável para digitar
+	nameInput.style.width = '100%';
+	nameInput.style.boxSizing = 'border-box';
+	nameInput.style.fontSize = '18px'; // Fonte maior para facilitar a leitura do participante
+	nameInput.style.border = '2px solid #333333';
+	nameInput.style.borderRadius = '8px';
+	nameInput.style.backgroundColor = '#2b2b2b';
+	nameInput.style.color = '#ffffff';
+	nameInput.style.outline = 'none';
+	nameInput.style.marginBottom = '30px';
+	nameInput.style.textAlign = 'center';
+	formWrapper.appendChild(nameInput);
+	
+	// Efeitos visuais de foco na caixa de texto
+	nameInput.onfocus = function() { nameInput.style.border = '2px solid #4CAF50'; };
+	nameInput.onblur = function() { nameInput.style.border = '2px solid #333333'; };
+	
+	// 6. O Botão Físico "Avançar"
+	var submitButton = document.createElement('button');
+	submitButton.type = 'button';
+	submitButton.innerText = 'Avançar';
+	submitButton.style.padding = '14px 0';
+	submitButton.style.width = '100%';
+	submitButton.style.fontSize = '18px';
+	submitButton.style.backgroundColor = '#4CAF50';
+	submitButton.style.color = '#ffffff';
+	submitButton.style.border = 'none';
+	submitButton.style.borderRadius = '8px';
+	submitButton.style.cursor = 'pointer';
+	submitButton.style.fontWeight = 'bold';
+	formWrapper.appendChild(submitButton);
+	
+	// Monta a estrutura na página web
+	fullScreenOverlay.appendChild(formWrapper);
+	document.body.appendChild(fullScreenOverlay);
+	
+	// Foca o cursor automaticamente na caixa de texto
+	setTimeout(function() {
+	    nameInput.focus();
+	}, 150);
+	
+	// 7. Ação do clique do mouse no botão
+	submitButton.onclick = function(e) {
+	    if (e) e.preventDefault();
+	    
+	    var cleanName = nameInput.value.trim();
+	    
+	    if (cleanName === "") {
+	        vars.subject_name = "Participante_Anonimo";
+	    } else {
+	        vars.subject_name = cleanName;
+	    }
+	    
+	    // Remove toda a manta e o formulário da tela de uma vez só
+	    var elementToRemove = document.getElementById('custom-ident-overlay');
+	    if (elementToRemove) {
+	        document.body.removeChild(elementToRemove);
+	    }
+	    
+	    // Avança o experimento mantendo o canvas do OSWeb intacto nos bastidores
+	    if (typeof runner !== 'undefined' && runner.resume) {
+	        runner.resume();
+	    } else if (typeof osweb !== 'undefined' && osweb.runner && osweb.runner.resume) {
+	        osweb.runner.resume();
+	    }
+	};
+	__end__
+	set _prepare ""
+
+define inline_javascript initiation_inline_javascript
+	set description "Executes JavaScript"
+	set _run ""
+	___prepare__
+	vars.ssd_start = 250;
+	vars.ssd_step = 50;
+	vars.ssd_min = 50;
+	vars.max_rt = 1000;
+	vars.ssd_max = vars.max_rt - 100;
+	
+	vars.ssd = vars.ssd_start;
+	vars.ssd_current = vars.ssd;
+	vars.ssd_next = vars.ssd;
+	__end__
+
+define inline_javascript jitter_js
+	set description "Executes JavaScript"
+	set _run ""
+	___prepare__
+	vars.ssd_current = vars.ssd;
+	vars.kb2_timeout = vars.max_rt - vars.ssd_current;
+	vars.jitter_tempo = Math.floor(Math.random() * (750 - 250 + 1)) + 250;
+	__end__
+
+define inline_javascript jitter_training_js
+	set description "Executes JavaScript"
+	set _run ""
+	___prepare__
+	vars.ssd_current = vars.ssd;
+	vars.kb2_timeout = vars.max_rt - vars.ssd_current;
+	vars.jitter_tempo = Math.floor(Math.random() * (750 - 250 + 1)) + 250;
+	__end__
+
+define keyboard_response kb1_response
+	set timeout "[ssd_current]"
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "left;right"
+
+define keyboard_response kb1_response_training
+	set timeout "[ssd_current]"
+	set flush yes
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "left;right"
+
+define keyboard_response kb2_response
+	set timeout "[kb2_timeout]"
+	set flush no
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "left;right"
+
+define keyboard_response kb2_response_training
+	set timeout "[kb2_timeout]"
+	set flush no
+	set event_type keypress
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "left;right"
+
+define logger logger
+	set description "Logs experimental data"
+	set auto_log yes
+
+define sketchpad mask_sketchpad
+	set duration "[jitter_tempo]"
+	set description "Displays stimuli"
+	draw textline center=1 color="#000000" font_bold=yes font_family=mono font_italic=no font_size=70 html=yes show_if=True text="+" x=0 y=0 z_index=0
+
+define sketchpad mask_training_sketchpad
+	set duration "[jitter_tempo]"
+	set description "Displays stimuli"
+	draw textline center=1 color="#000000" font_bold=yes font_family=mono font_italic=no font_size=70 html=yes show_if=True text="+" x=0 y=0 z_index=0
+
+define logger new_logger
+	set description "Logs experimental data"
+	set auto_log yes
+
+define sketchpad pause_transition
+	set duration 1500
+	set description "Displays stimuli"
+	draw textline center=1 color=black font_bold=no font_family=mono font_italic=no font_size=22 html=yes show_if=always text="" x=0 y=0 z_index=0
+	draw textline center=1 color="#000000" font_bold=no font_family=mono font_italic=no font_size=50 html=yes show_if=True text="Aguarde o Início do Teste!" x=0 y=0 z_index=0
+
+define inline_javascript reset_ssd_inline_javascript
+	set description "Executes JavaScript"
+	___run__
+	vars.ssd = vars.ssd_start;
+	vars.ssd_current = vars.ssd;
+	vars.ssd_next = vars.ssd;
+	__end__
+	set _prepare ""
+
+define inline_javascript staircase_tracking_inline_javascript
+	set description "Executes JavaScript"
+	___run__
+	if (vars.is_stop_trial === 1) {
+	    if (vars.stop_responded === 0) {
+	        vars.ssd = vars.ssd + vars.ssd_step;
+	        vars.inhibition_success = 1;
+	    } else {
+	        vars.ssd = vars.ssd - vars.ssd_step;
+	        vars.inhibition_success = 0;
+	    }
+	
+	    if (vars.ssd < vars.ssd_min) {
+	        vars.ssd = vars.ssd_min;
+	    }
+	
+	    if (vars.ssd > vars.ssd_max) {
+	        vars.ssd = vars.ssd_max;
+	    }
+	} else {
+	    vars.inhibition_success = "N/A";
+	}
+	
+	vars.ssd_next = vars.ssd;
+	__end__
+	set _prepare ""
+
+define inline_javascript staircase_tracking_training_inline_javascript
+	set description "Executes JavaScript"
+	___run__
+	if (vars.is_stop_trial === 1) {
+	    if (vars.stop_responded === 0) {
+	        vars.ssd = vars.ssd + vars.ssd_step;
+	        vars.inhibition_success = 1;
+	    } else {
+	        vars.ssd = vars.ssd - vars.ssd_step;
+	        vars.inhibition_success = 0;
+	    }
+	
+	    if (vars.ssd < vars.ssd_min) {
+	        vars.ssd = vars.ssd_min;
+	    }
+	
+	    if (vars.ssd > vars.ssd_max) {
+	        vars.ssd = vars.ssd_max;
+	    }
+	} else {
+	    vars.inhibition_success = "N/A";
+	}
+	
+	vars.ssd_next = vars.ssd;
+	__end__
+	set _prepare ""
+
+define sketchpad stop_signal
+	set foreground black
+	set duration 0
+	set description "Displays stimuli"
+	set background white
+	draw arrow arrow_body_length=0.8 arrow_body_width=0.5 arrow_head_width=30 color=red fill=1 penwidth=1 show_if="[target] = 'right'" x1=-64 x2=64 y1=0 y2=0 z_index=0
+	draw arrow arrow_body_length=0.8 arrow_body_width=0.5 arrow_head_width=30 color=red fill=1 penwidth=1 show_if="[target] = 'left'" x1=64 x2=-64 y1=0 y2=0 z_index=0
+
+define sketchpad stop_signal_training
+	set foreground black
+	set duration 0
+	set description "Displays stimuli"
+	set background white
+	draw arrow arrow_body_length=0.8 arrow_body_width=0.5 arrow_head_width=30 color=red fill=1 penwidth=1 show_if="[target] = 'right'" x1=-64 x2=64 y1=0 y2=0 z_index=0
+	draw arrow arrow_body_length=0.8 arrow_body_width=0.5 arrow_head_width=30 color=red fill=1 penwidth=1 show_if="[target] = 'left'" x1=64 x2=-64 y1=0 y2=0 z_index=0
+
+define sketchpad sync_sketchpad
+	set foreground white
+	set duration 0
+	set description "Displays stimuli"
+	set background white
+	draw textline center=1 color=white font_bold=no font_family=monospace font_italic=no font_size=64 html=yes show_if=always text="[target]" x=0 y=0 z_index=0
+
+define sketchpad sync_training_sketchpad
+	set duration 0
+	set description "Displays stimuli"
+
+define sketchpad target
+	set foreground black
+	set duration 0
+	set description "Displays stimuli"
+	set background white
+	draw arrow arrow_body_length=0.8 arrow_body_width=0.5 arrow_head_width=30 color=black fill=1 penwidth=1 show_if="[target] = 'right'" x1=-64 x2=64 y1=0 y2=0 z_index=0
+	draw arrow arrow_body_length=0.8 arrow_body_width=0.5 arrow_head_width=30 color=black fill=1 penwidth=1 show_if="[target] = 'left'" x1=64 x2=-64 y1=0 y2=0 z_index=0
+
+define sketchpad target_training_sketchpad
+	set foreground black
+	set duration 0
+	set description "Displays stimuli"
+	set background white
+	draw arrow arrow_body_length=0.8 arrow_body_width=0.5 arrow_head_width=30 color=black fill=1 penwidth=1 show_if="[target] = 'right'" x1=-64 x2=64 y1=0 y2=0 z_index=0
+	draw arrow arrow_body_length=0.8 arrow_body_width=0.5 arrow_head_width=30 color=black fill=1 penwidth=1 show_if="[target] = 'left'" x1=64 x2=-64 y1=0 y2=0 z_index=0
+
+define sequence task
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run initiation_inline_javascript True
+	run config_viewport_inline_javascript True
+	run custom_identification_page_inline_javascript True
+	run Training_Instructions True
+	run transition_time_sketchpad True
+	run training_loop True
+	run End_of_Training True
+	run pause_transition True
+	run reset_ssd_inline_javascript True
+	run transition_time_training_sketchpad True
+	run block_loop True
+	run End_of_Task True
+
+define loop training_loop
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 16
+	set continuous no
+	set break_if_on_first yes
+	set break_if False
+	setcycle 0 correct_response None
+	setcycle 0 target left
+	setcycle 1 correct_response None
+	setcycle 1 target left
+	setcycle 2 correct_response None
+	setcycle 2 target right
+	setcycle 3 correct_response None
+	setcycle 3 target right
+	setcycle 4 correct_response left
+	setcycle 4 target left
+	setcycle 5 correct_response left
+	setcycle 5 target left
+	setcycle 6 correct_response left
+	setcycle 6 target left
+	setcycle 7 correct_response left
+	setcycle 7 target left
+	setcycle 8 correct_response left
+	setcycle 8 target left
+	setcycle 9 correct_response left
+	setcycle 9 target left
+	setcycle 10 correct_response right
+	setcycle 10 target right
+	setcycle 11 correct_response right
+	setcycle 11 target right
+	setcycle 12 correct_response right
+	setcycle 12 target right
+	setcycle 13 correct_response right
+	setcycle 13 target right
+	setcycle 14 correct_response right
+	setcycle 14 target right
+	setcycle 15 correct_response right
+	setcycle 15 target right
+	run training_trial_sequence
+
+define sequence training_trial_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run jitter_training_js True
+	run mask_training_sketchpad True
+	run target_training_sketchpad True
+	run kb1_response_training True
+	run stop_signal_training "[correct_response] == \"None\" and [response_kb1_response_training] == \"None\""
+	run kb2_response_training "[response_kb1_response_training] == \"None\""
+	run compute_training_result_inline_javascript True
+	run sync_training_sketchpad True
+	run staircase_tracking_training_inline_javascript True
+	run new_logger True
+
+define sketchpad transition_time_sketchpad
+	set duration 2000
+	set description "Displays stimuli"
+
+define sketchpad transition_time_training_sketchpad
+	set duration 1500
+	set description "Displays stimuli"
+
+define sequence trial_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run jitter_js True
+	run mask_sketchpad True
+	run target True
+	run kb1_response True
+	run stop_signal "[correct_response] == \"None\" and [response_kb1_response] == \"None\""
+	run kb2_response "[response_kb1_response] == \"None\""
+	run compute_trial_result_inline_javascript True
+	run sync_sketchpad True
+	run staircase_tracking_inline_javascript True
+	run logger True
+
