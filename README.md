@@ -15,11 +15,11 @@ Visit the PT-BR version: **[dumag93.github.io/Brief-Advanced-Computerized-Neurop
 
 All tests can be run directly in your browser, with no installation required!
 
-## Hardware Requirements & Clinical Administration
+## Hardware Requirements & Experimental Administration
 
 **The BACNB interface is intentionally incompatible with smartphones.** Execution requires a computer or a tablet with a screen size of 11 inches or larger. While it has not been tested on smaller tablets, the spatial specifications encoded in the `.osexp` files make the visual interface structurally incompatible with smaller displays.
 
-**This hardware restriction is not arbitrary.** The BACNB is not a self-administered tool. These tasks must be applied in a controlled environment by a qualified administrator with clinical experience to ensure valid behavioral measurement, proper environmental setup, and continuous supervision.
+**This hardware restriction is not arbitrary.** Although these tasks were conceptually designed with clinical paradigms and utility in mind, the battery is not a self-administered tool. To ensure valid behavioral measurement and proper environmental control, these tasks must be administered by trained researchers or professionals with experience in experimental or clinical settings. This requirement is strictly intended to preserve data integrity during experimental collection.
 
 ## Contents
 
@@ -102,7 +102,7 @@ pip install -r requirements.txt
 
 ## Scientific Status
 
-This is an experimental and in silico methodological project. It is not a clinical diagnostic instrument, does not provide clinical norms, and should not be used for individual diagnosis without explicit informed consent and qualified professional oversight.
+This is an experimental and *in silico* methodological project. Although the BACNB tasks were conceptually designed with clinical utility in mind, **there is currently no empirical or scientific validation of their clinical value.** The current status of this project is strictly that of a test battery evaluated *in silico* through computational simulation. It does not provide normative clinical reference data and must not be used for individual clinical diagnosis, psychological assessment, or therapeutic planning.
 
 ## Open Science Intent
 
