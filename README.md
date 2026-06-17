@@ -9,11 +9,11 @@ This repository package contains only the public-facing computational core:
 
 It intentionally excludes manuscript files, bibliographic PDFs, submission archives, raw participant logs, generated Monte Carlo outputs, and historical audit material.
 
-## 🌐 Acesse os Testes Online
+## 🌐 Access the Online Tests
 
-Visite: **[dumag93.github.io/Brief-Advanced-Computerized-Neuropsychological-Battery-BACNB-](https://dumag93.github.io/Brief-Advanced-Computerized-Neuropsychological-Battery-BACNB-/)**
+Visit the PT-BR version: **[dumag93.github.io/Brief-Advanced-Computerized-Neuropsychological-Battery-BACNB-](https://dumag93.github.io/Brief-Advanced-Computerized-Neuropsychological-Battery-BACNB-/)**
 
-Todos os testes podem ser executados diretamente no navegador sem necessidade de instalação!
+All tests can be run directly in your browser, with no installation required!
 
 ## Contents
 
