@@ -49,7 +49,6 @@ All tests can be run directly in your browser, with no installation required!
 |   `-- Monte_Carlo_Simulation_BACNB.py
 |-- CONTRIBUTING.md
 |-- requirements.txt
-|-- .gitignore
 `-- LICENSE.txt
 ```
 
