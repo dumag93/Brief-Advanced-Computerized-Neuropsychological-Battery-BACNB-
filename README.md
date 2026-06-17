@@ -11,7 +11,7 @@ It intentionally excludes manuscript files, bibliographic PDFs, submission archi
 
 ## 🌐 Access the Online Tests
 
-Visit the PT-BR version: **[dumag93.github.io/Brief-Advanced-Computerized-Neuropsychological-Battery-BACNB-](https://dumag93.github.io/Brief-Advanced-Computerized-Neuropsychological-Battery-BACNB/)**
+Visit the PT-BR version: **[dumag93.github.io/Brief-Advanced-Computerized-Neuropsychological-Battery-BACNB](https://dumag93.github.io/Brief-Advanced-Computerized-Neuropsychological-Battery-BACNB/)**
 
 All tests can be run directly in your browser, with no installation required!
 
