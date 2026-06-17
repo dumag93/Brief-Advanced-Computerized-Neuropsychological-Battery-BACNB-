@@ -41,6 +41,7 @@ All tests can be run directly in your browser, with no installation required!
 |-- requirements.txt
 |-- .gitignore
 `-- LICENSE.txt
+```
 
 ## Tasks
 
